@@ -1,7 +1,7 @@
 <html>
 
   <head>
-    <title>Tresor - A Password Manager</title>
+    <title>Tresor - A Java(tm) Password Manager</title>
   </head>
 
   <body bgcolor="#FFFFFF">
@@ -17,7 +17,7 @@
       <tr>
         <td colspan="2" bgcolor="#000000">
           <font face="Arial,Helvetica" color="#FFFFFF" size="+2">
-            <center><b>Tresor - A Password Manager<b></center>
+            <center><b>Tresor - A Java(tm) Password Manager<b></center>
           </font>
         </td>
       </tr>
