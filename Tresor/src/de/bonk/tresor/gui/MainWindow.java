@@ -18,8 +18,10 @@
 package de.bonk.tresor.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Point;
+import javax.swing.DefaultListCellRenderer;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -29,6 +31,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.border.BevelBorder;
 
+import de.bonk.tresor.Account;
 import de.bonk.tresor.Application;
 import de.bonk.tresor.Configuration;
 import de.bonk.tresor.I18N;
@@ -115,6 +118,25 @@ public class MainWindow extends JFrame
     this.getContentPane().add( statusLine, BorderLayout.SOUTH );
 
     accountDescriptions = new JList(KeyManager.getInstance().getAccountStore());
+    accountDescriptions.setCellRenderer(
+      new DefaultListCellRenderer()
+      {
+        public Component getListCellRendererComponent( JList   list,
+                                                       Object  value,
+                                                       int     index,
+                                                       boolean isSelected,
+                                                       boolean hasFocus    )
+        {
+          return super.getListCellRendererComponent(
+                   list,
+                   ((Account)value).getDescription(),
+                   index,
+                   isSelected,
+                   hasFocus
+                 );
+        }
+      }
+    );
     this.getContentPane().add( new JScrollPane( accountDescriptions ),
                                BorderLayout.CENTER                     );
 

@@ -63,6 +63,17 @@ public class AccountStore extends AbstractListModel implements Serializable
 
 
   /**
+   * This method adds an account to the account store.
+   * @param account the new account
+   */
+  public void addAccount( Account account )
+  {
+    accounts.add( account );
+    fireContentsChanged( this, 0, getSize() );
+  }
+
+
+  /**
    * This method returns the n-th account.
    * @param n index of the account which shall be returned
    * @return the n-th account

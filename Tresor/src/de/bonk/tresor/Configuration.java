@@ -124,7 +124,8 @@ public class Configuration extends Properties
    */
   public String getCipherAlgorithmName()
   {
-    return (String)super.get( "cipherAlgorithmName" );
+    String cipherAlgorithmName = (String)super.get( "cipherAlgorithmName" );
+    return (null == cipherAlgorithmName) ? "Rijndael" : cipherAlgorithmName;
   }
 
 

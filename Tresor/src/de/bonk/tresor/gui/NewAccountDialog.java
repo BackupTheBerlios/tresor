@@ -25,7 +25,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.security.KeyException;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyGenerator;
+import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -215,26 +220,65 @@ public class NewAccountDialog extends JDialog
   class OkButtonActionListener implements ActionListener
   {
     /**
-     * This method is being called, when the user presses the OK button
+     * This method is being called, when the user presses the OK button. It
+     * encrypts the account data and adds it to the account store.
      * @param ev event object
      */
     public void actionPerformed( ActionEvent ev )
     {
       try
       {
-        Configuration theConfiguration = Configuration.getInstance();
-        char[]        storePassWord    = KeyManager.getInstance().getPassword();
-        KeyGenerator  keyGenerator     = KeyGenerator.getInstance(
-                                           theConfiguration.getCipherAlgorithmName()
-                                         );
+        Configuration theConfiguration   = Configuration.getInstance();
+        char[]        storePassWord      = KeyManager.getInstance().getPassword();
+        byte[]        storePassWordBytes = PasswordTool.convertToByteArray(
+                                             storePassWord
+                                           );
+        KeyGenerator  keyGenerator       = KeyGenerator.getInstance(
+                                             theConfiguration.getCipherAlgorithmName()
+                                           );
+        keyGenerator.init( new SecureRandom( storePassWordBytes ) );
+        SecretKey     secretKey          = keyGenerator.generateKey();
+        Cipher        cipher             = Cipher.getInstance(
+                                             theConfiguration.getCipherAlgorithmName()
+                                           );
+        cipher.init( Cipher.ENCRYPT_MODE, secretKey );
+
+        // now create the account and encrypt all necessary data
+        Account account = new Account();
+        account.setDescription( accountDescription.getText() );
+        account.setHostname( cipher.doFinal( hostName.getText().getBytes() ) );
+        account.setUsername( cipher.doFinal( userName.getText().getBytes() ) );
+        account.setPassword( cipher.doFinal( PasswordTool.convertToByteArray( passWord.getPassword() ) ) );
+        account.setNotes( cipher.doFinal( notes.getText().getBytes() ) );
+
+        // add the account to the store
+        KeyManager.getInstance().getAccountStore().addAccount( account );
+
+        // unlock /erase the password
+        PasswordTool.wipeout( storePassWordBytes );
+        KeyManager.getInstance().unlockPassword();
       }
       catch( KeyException x )
       {
         // the user entered an invalid store password
+        x.printStackTrace();
       }
       catch( NoSuchAlgorithmException x )
       {
         // the cipher algorithm is unknown
+        x.printStackTrace();
+      }
+      catch( NoSuchPaddingException x )
+      {
+        x.printStackTrace();
+      }
+      catch( BadPaddingException x )
+      {
+        x.printStackTrace();
+      }
+      catch( IllegalBlockSizeException x )
+      {
+        x.printStackTrace();
       }
     }
   }

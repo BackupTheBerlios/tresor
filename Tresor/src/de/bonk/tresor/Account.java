@@ -18,6 +18,7 @@
 package de.bonk.tresor;
 
 import java.io.Serializable;
+import java.text.Collator;
 
 
 
@@ -27,7 +28,7 @@ import java.io.Serializable;
  * @author Thomas Bonk
  * @version 0.1
  */
-public class Account implements Serializable
+public class Account implements Serializable, Comparable
 {
   static final long serialVersionUID = -7297964106192903325L;
 
@@ -63,6 +64,22 @@ public class Account implements Serializable
    */
   public Account()
   {
+  }
+
+
+  /**
+   * Compares this object with the specified object for order. Returns a
+   * negative integer, zero, or a positive integer as this object is less than,
+   * equal to, or greater than the specified object.
+   * @param o the Object to be compared.
+   * @return a negative integer, zero, or a positive integer as this object is
+   *         less than, equal to, or greater than the specified object.
+   */
+  public int compareTo( Object o )
+  {
+    Collator collator = Collator.getInstance();
+
+    return collator.compare( description, ((Account)o).description );
   }
 
 
