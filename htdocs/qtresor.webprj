@@ -1,0 +1,11 @@
+<!DOCTYPE webproject ><webproject>
+ <project preview="" type="Local" name="QTresor" >
+  <upload/>
+  <author>Thomas Bonk</author>
+  <email>tbonk@users.berlios.de</email>
+  <item url="about/about.php" />
+  <item url="images/lfs.jpg" />
+  <item url="news/news.php" />
+  <item url="index.php" />
+ </project>
+</webproject>
