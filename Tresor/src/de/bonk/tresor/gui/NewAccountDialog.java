@@ -24,6 +24,7 @@ import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.security.KeyException;
+import java.security.NoSuchAlgorithmException;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.swing.JButton;
@@ -38,6 +39,7 @@ import javax.swing.JTextField;
 import de.bonk.gui.GridBagTool;
 import de.bonk.tresor.Account;
 import de.bonk.tresor.AccountStore;
+import de.bonk.tresor.Configuration;
 import de.bonk.tresor.I18N;
 import de.bonk.tresor.KeyManager;
 import de.bonk.tresor.gui.MainWindow;
@@ -220,14 +222,19 @@ public class NewAccountDialog extends JDialog
     {
       try
       {
-        char[]       storePassWord = KeyManager.getInstance().getPassword();
-        KeyGenerator keyGenerator  = KeyGenerator.getInstance( "Rijndael" );
-
-        System.out.println(keyGenerator);
+        Configuration theConfiguration = Configuration.getInstance();
+        char[]        storePassWord    = KeyManager.getInstance().getPassword();
+        KeyGenerator  keyGenerator     = KeyGenerator.getInstance(
+                                           theConfiguration.getCipherAlgorithmName()
+                                         );
       }
       catch( KeyException x )
       {
         // the user entered an invalid store password
+      }
+      catch( NoSuchAlgorithmException x )
+      {
+        // the cipher algorithm is unknown
       }
     }
   }

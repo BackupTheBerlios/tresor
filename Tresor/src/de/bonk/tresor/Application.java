@@ -20,6 +20,10 @@ package de.bonk.tresor;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.security.Provider;
+import java.security.Security;
+
+import cryptix.jce.provider.CryptixCrypto;
 
 import de.bonk.tresor.gui.MainWindow;
 
@@ -73,6 +77,15 @@ public class Application
    * The accoutn store
    */
   private AccountStore accountStore = null;
+
+
+
+  static
+  {
+    // add the cryptix jce provider
+    Security.addProvider( new CryptixCrypto() );
+  }
+
 
 
   /**

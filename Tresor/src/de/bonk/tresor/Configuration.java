@@ -114,6 +114,17 @@ public class Configuration extends Properties
   private Configuration()
   {
     super.setProperty( "keyTimeout", "300" );
+    super.setProperty( "cipherAlgorithmName", "Rijndael" );
+  }
+
+
+  /**
+   * Getter for the cipher algorithm name
+   * @return the cipher algorithm name
+   */
+  public String getCipherAlgorithmName()
+  {
+    return (String)super.get( "cipherAlgorithmName" );
   }
 
 
