@@ -1,5 +1,5 @@
 Requirements
 ============
 
-* Cryptix JCE
-  Available from http://www.cryptix.org
+* Java Cryptographic Extension (JCE)
+  Available from http://java.sun.com/products/jce/index.html

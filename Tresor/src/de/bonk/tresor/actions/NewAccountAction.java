@@ -22,7 +22,7 @@ import javax.swing.AbstractAction;
 
 import de.bonk.tresor.I18N;
 import de.bonk.tresor.gui.MainWindow;
-import de.bonk.tresor.gui.AccountDialog;
+import de.bonk.tresor.gui.NewAccountDialog;
 
 
 
@@ -54,6 +54,6 @@ public class NewAccountAction extends AbstractAction
 
   public void actionPerformed( ActionEvent e )
   {
-    new AccountDialog();
+    new NewAccountDialog();
   }
 }

@@ -137,7 +137,7 @@ public class MainWindow extends JFrame
 
 
   /**
-   * Set the window position and size in the configuration.
+   * This method stores the window position and size in the configuration.
    */
   public void saveWindowProperties()
   {
