@@ -1,23 +1,23 @@
 <html>
 
   <head>
-    <title>Tresor - A Java(tm) Password Manager</title>
+    <title>Tresor - A Password Manager</title>
   </head>
 
   <body bgcolor="#FFFFFF">
 
     <?
     if( "" == $page )
-      $page="/about/about.php";
+      $page="/news/news.php";
     if( ("index.php" == $page) || strrpos( $page, "index.php" ) )
-      $page="/about/about.php";
+      $page="/news/news.php";
     ?>
 
     <table width="600" border="0" cellspacing="0" cellpadding="2">
       <tr>
         <td colspan="2" bgcolor="#000000">
           <font face="Arial,Helvetica" color="#FFFFFF" size="+2">
-            <center><b>Tresor - A Java(tm) Password Manager<b></center>
+            <center><b>Tresor - A Password Manager<b></center>
           </font>
         </td>
       </tr>
@@ -45,7 +45,7 @@
                           <font face="Arial,Helvetica">
                             <center>
                               <a href="index.php?page=/about/about.php">About</a><br>
-                              <a href="index.php?page=/about/about.php">News</a><br>
+                              <a href="index.php?page=/news/news.php">News</a><br>
                               <a href="http://developer.berlios.de/projects/tresor/">Project page</a>
                             </center>
                           </font>
