@@ -49,14 +49,14 @@ de.bonk.tresor.gui.PasswordDialog.buttonOk=OK
 
 #
 # String resources for the CreateAccountDialog
-de.bonk.tresor.gui.AccountDialog.dialogTitle=Create Account
-de.bonk.tresor.gui.AccountDialog.descriptionLabel=Description:
-de.bonk.tresor.gui.AccountDialog.hostnameLabel=Hostname:
-de.bonk.tresor.gui.AccountDialog.usernameLabel=User name:
-de.bonk.tresor.gui.AccountDialog.passwordLabel=Password:
-de.bonk.tresor.gui.AccountDialog.notesLabel=Notes:
-de.bonk.tresor.gui.AccountDialog.buttonOk=OK
-de.bonk.tresor.gui.AccountDialog.buttonCancel=Cancel
+de.bonk.tresor.gui.NewAccountDialog.dialogTitle=Create Account
+de.bonk.tresor.gui.NewAccountDialog.descriptionLabel=Description:
+de.bonk.tresor.gui.NewAccountDialog.hostnameLabel=Hostname:
+de.bonk.tresor.gui.NewAccountDialog.usernameLabel=User name:
+de.bonk.tresor.gui.NewAccountDialog.passwordLabel=Password:
+de.bonk.tresor.gui.NewAccountDialog.notesLabel=Notes:
+de.bonk.tresor.gui.NewAccountDialog.buttonOk=OK
+de.bonk.tresor.gui.NewAccountDialog.buttonCancel=Cancel
 
 
 #
