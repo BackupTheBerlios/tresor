@@ -24,6 +24,8 @@ import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.security.KeyException;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -47,7 +49,7 @@ import de.bonk.tresor.PasswordTool;
  * @author Thomas Bonk
  * @version 0.1
  */
-public class AccountDialog extends JDialog
+public class NewAccountDialog extends JDialog
 {
   /**
    * textfield for the description of the account
@@ -79,7 +81,7 @@ public class AccountDialog extends JDialog
   /**
    * Default constructor.
    */
-  public AccountDialog()
+  public NewAccountDialog()
   {
     super( MainWindow.getInstance() );
     setupGui();
@@ -218,7 +220,10 @@ public class AccountDialog extends JDialog
     {
       try
       {
-        char[] storePassWord = KeyManager.getInstance().getPassword();
+        char[]       storePassWord = KeyManager.getInstance().getPassword();
+        KeyGenerator keyGenerator  = KeyGenerator.getInstance( "Rijndael" );
+
+        System.out.println(keyGenerator);
       }
       catch( KeyException x )
       {
