@@ -1,0 +1,59 @@
+#
+# This file contains all string ressources for the application.
+#
+
+#
+# String ressources for the menu bar
+
+# File menu
+de.bonk.tresor.gui.MainWindow.fileMenu=File
+de.bonk.tresor.gui.MainWindow.fileMenu.saveItem=Save password store
+de.bonk.tresor.gui.MainWindow.fileMenu.changePasswordItem=Change store password...
+de.bonk.tresor.gui.MainWindow.fileMenu.exportItem=Export password store...
+de.bonk.tresor.gui.MainWindow.fileMenu.importItem=Import password store...
+de.bonk.tresor.gui.MainWindow.fileMenu.exitItem=Exit
+
+# Edit menu
+de.bonk.tresor.gui.MainWindow.editMenu=Edit
+de.bonk.tresor.gui.MainWindow.editMenu.viewAccountItem=View account...
+de.bonk.tresor.gui.MainWindow.editMenu.newAccountItem=New account...
+de.bonk.tresor.gui.MainWindow.editMenu.editAccountItem=Edit selected account...
+de.bonk.tresor.gui.MainWindow.editMenu.deleteAccountItem=Delete selected account...
+
+
+#
+# String resources for the KeyManager
+de.bonk.tresor.KeyManager.titleError=Error
+de.bonk.tresor.KeyManager.wrongPassword=The password is wrong!\nThe application will be terminated.
+
+
+#
+# String resources for the InitialPasswordDialog
+de.bonk.tresor.gui.InitialPasswordDialog.title=Tresor: Enter initial store password
+de.bonk.tresor.gui.InitialPasswordDialog.labelPassword=Password:
+de.bonk.tresor.gui.InitialPasswordDialog.labelRetypePassword=Re-type Password:
+de.bonk.tresor.gui.InitialPasswordDialog.buttonOk=OK
+de.bonk.tresor.gui.InitialPasswordDialog.passwordErrorMessage=You must enter a password!
+de.bonk.tresor.gui.InitialPasswordDialog.retypePasswordErrorMessage=Please re-type the password!
+de.bonk.tresor.gui.InitialPasswordDialog.enterAgainErrorMessage=Your input doesn't match.\nPlease re-enter your password.
+de.bonk.tresor.gui.InitialPasswordDialog.tooShortErrorMessage=Your password is too short.\nIt must habe at least %1 character.
+de.bonk.tresor.gui.InitialPasswordDialog.titleError=Error
+
+
+#
+# String resources for the PasswordDialog
+de.bonk.tresor.gui.PasswordDialog.title=Enter store password
+de.bonk.tresor.gui.PasswordDialog.labelPassword=Password:
+de.bonk.tresor.gui.PasswordDialog.buttonOk=OK
+
+
+#
+# String resources for the CreateAccountDialog
+de.bonk.tresor.gui.AccountDialog.dialogTitle=Create Account
+de.bonk.tresor.gui.AccountDialog.descriptionLabel=Description:
+de.bonk.tresor.gui.AccountDialog.hostnameLabel=Hostname:
+de.bonk.tresor.gui.AccountDialog.usernameLabel=User name:
+de.bonk.tresor.gui.AccountDialog.passwordLabel=Password:
+de.bonk.tresor.gui.AccountDialog.notesLabel=Notes:
+de.bonk.tresor.gui.AccountDialog.buttonOk=OK
+de.bonk.tresor.gui.AccountDialog.buttonCancel=Cancel

@@ -1,0 +1,5 @@
+#!/bin/sh
+rm -f `find . -name "*~"`
+rm -f `find ./classes -name "*.class"`
+rm -rf ./classes/dependency\ cache/
+rm -rf ./bak/*
