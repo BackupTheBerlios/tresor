@@ -17,6 +17,7 @@
 
 package de.bonk.tresor;
 
+import java.security.KeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -105,12 +106,20 @@ public class KeyManager
    * the user. It must be released with unlockPassword after usage.
    * @return character array with the password
    */
-  public char[] getPassword()
+  public char[] getPassword() throws KeyException
   {
     if( null == passWord )
     {
       PasswordDialog passwordDialog = new PasswordDialog();
       passWord = passwordDialog.getPassword();
+
+      if( !checkPassword( passWord ) )
+      {
+        PasswordTool.wipeout( passWord );
+        passWord = null;
+
+        throw new KeyException( (String)I18N.getInstance().get( this, "wrongPassword" ) );
+      }
     }
 
     return passWord;
@@ -167,7 +176,6 @@ public class KeyManager
       byte[]        bytes = PasswordTool.convertToByteArray( password );
       md5.update( bytes );
       PasswordTool.wipeout( bytes );
-      PasswordTool.wipeout( password );
       bytes = md5.digest();
       flOk = PasswordTool.equal(bytes,accountStore.getPasswordHash());
       PasswordTool.wipeout( bytes );

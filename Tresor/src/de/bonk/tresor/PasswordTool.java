@@ -21,8 +21,9 @@ public class PasswordTool
    */
   public static void wipeout( char[] characters )
   {
-    for( int i = 0, n = characters.length; i < n; i++ )
-      characters[i] = 0;
+    if( null != characters )
+      for( int i = 0, n = characters.length; i < n; i++ )
+        characters[i] = 0;
   }
 
 
@@ -33,8 +34,9 @@ public class PasswordTool
    */
   public static void wipeout( byte[] bytes )
   {
-    for( int i = 0, n = bytes.length; i < n; i++ )
-      bytes[i] = 0;
+    if( null != bytes )
+      for( int i = 0, n = bytes.length; i < n; i++ )
+        bytes[i] = 0;
   }
 
 

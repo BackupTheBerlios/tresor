@@ -18,6 +18,8 @@
 package de.bonk.tresor.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Point;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -28,6 +30,7 @@ import javax.swing.JScrollPane;
 import javax.swing.border.BevelBorder;
 
 import de.bonk.tresor.Application;
+import de.bonk.tresor.Configuration;
 import de.bonk.tresor.I18N;
 import de.bonk.tresor.KeyManager;
 import de.bonk.tresor.actions.ExitAction;
@@ -115,7 +118,11 @@ public class MainWindow extends JFrame
     this.getContentPane().add( new JScrollPane( accountDescriptions ),
                                BorderLayout.CENTER                     );
 
-    this.setSize( 300, 350 );
+    Configuration theConfiguration = Configuration.getInstance();
+    this.setSize( theConfiguration.getWindowWidth(),
+                  theConfiguration.getWindowHeight() );
+    this.setLocation( theConfiguration.getWindowXPos(),
+                      theConfiguration.getWindowYPos() );
     this.setVisible( true );
   }
 
@@ -126,6 +133,22 @@ public class MainWindow extends JFrame
   public void setStatusLineText( String text )
   {
     statusLine.setText( text );
+  }
+
+
+  /**
+   * Set the window position and size in the configuration.
+   */
+  public void saveWindowProperties()
+  {
+    // set the current window position and size in the configuration
+    Configuration theConfiguration = Configuration.getInstance();
+    Point         theLocation      = this.getLocation();
+    Dimension     theSize          = this.getSize();
+    theConfiguration.setWindowXPos( (int)theLocation.getX() );
+    theConfiguration.setWindowYPos( (int)theLocation.getY() );
+    theConfiguration.setWindowWidth( (int)theSize.getWidth() );
+    theConfiguration.setWindowHeight( (int)theSize.getHeight() );
   }
 
 

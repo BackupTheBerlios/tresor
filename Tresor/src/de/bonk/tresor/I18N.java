@@ -23,6 +23,7 @@ import java.net.URL;
 import java.util.Locale;
 import java.util.PropertyResourceBundle;
 import java.lang.StringBuffer;
+import java.text.MessageFormat;
 
 
 
@@ -116,5 +117,31 @@ public class I18N
     stringBuffer.append( key );
 
     return resourceBundle.getObject( stringBuffer.toString() );
+  }
+
+  /**
+   * This method returns the value for the class of the given object and name.
+   * If it is a string, it will be formated with the given argument.
+   * @param object   The object that requests the value
+   * @param key      The key of the value
+   * @param argument the argument to be integrated into the string
+   * @return The value for the class of the given object and name.
+   */
+  public Object get( Object object, String key, Object argument )
+  {
+    // build the name for key in the resource bundle
+    StringBuffer stringBuffer = new StringBuffer( object.getClass().getName() );
+    stringBuffer.append( "." );
+    stringBuffer.append( key );
+
+    Object obj = resourceBundle.getObject( stringBuffer.toString() );
+    if( obj instanceof String )
+    {
+      Object[] arguments = new Object[1];
+      arguments[0] = argument;
+      obj = (String)MessageFormat.format( (String)obj, arguments );
+    }
+
+    return obj;
   }
 }

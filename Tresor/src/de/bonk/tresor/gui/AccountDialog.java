@@ -23,6 +23,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.KeyException;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -215,6 +216,14 @@ public class AccountDialog extends JDialog
      */
     public void actionPerformed( ActionEvent ev )
     {
+      try
+      {
+        char[] storePassWord = KeyManager.getInstance().getPassword();
+      }
+      catch( KeyException x )
+      {
+        // the user entered an invalid store password
+      }
     }
   }
 

@@ -181,7 +181,10 @@ public class InitialPasswordDialog extends JDialog implements ActionListener
       passWord.grabFocus();
       JOptionPane.showMessageDialog(
         this,
-        (String)I18N.getInstance().get(this,"tooShortErrorMessage"),
+        (String)I18N.getInstance().get(this,
+                                       "tooShortErrorMessage",
+                                       new Integer(PasswordTool.MIN_STORE_PASSWORD_LENGTH)
+                                      ),
         (String)I18N.getInstance().get(this,"titleError"),
         JOptionPane.ERROR_MESSAGE                                    );
       return;

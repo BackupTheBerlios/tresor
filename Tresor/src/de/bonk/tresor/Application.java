@@ -106,6 +106,7 @@ public class Application
   {
     try
     {
+      mainWindow.saveWindowProperties();
       Configuration.getInstance().save();
       accountStore.save();
     }

@@ -36,7 +36,7 @@ de.bonk.tresor.gui.InitialPasswordDialog.buttonOk=OK
 de.bonk.tresor.gui.InitialPasswordDialog.passwordErrorMessage=You must enter a password!
 de.bonk.tresor.gui.InitialPasswordDialog.retypePasswordErrorMessage=Please re-type the password!
 de.bonk.tresor.gui.InitialPasswordDialog.enterAgainErrorMessage=Your input doesn't match.\nPlease re-enter your password.
-de.bonk.tresor.gui.InitialPasswordDialog.tooShortErrorMessage=Your password is too short.\nIt must habe at least %1 character.
+de.bonk.tresor.gui.InitialPasswordDialog.tooShortErrorMessage=Your password is too short.\nIt must have at least {0,number,integer} character.
 de.bonk.tresor.gui.InitialPasswordDialog.titleError=Error
 
 
@@ -57,3 +57,8 @@ de.bonk.tresor.gui.AccountDialog.passwordLabel=Password:
 de.bonk.tresor.gui.AccountDialog.notesLabel=Notes:
 de.bonk.tresor.gui.AccountDialog.buttonOk=OK
 de.bonk.tresor.gui.AccountDialog.buttonCancel=Cancel
+
+
+#
+# String ressources used in the class de.bonk.tresor.KeyManager
+de.bonk.tresor.KeyManager.wrongPassword=The password does not match the key store password.

@@ -115,4 +115,108 @@ public class Configuration extends Properties
   {
     super.setProperty( "keyTimeout", "300" );
   }
+
+
+  /**
+   * Setter for the key timeout.
+   * @param keyTimeout the new key timeout in seconds
+   */
+  public void setKeyTimeout( int keyTimeout )
+  {
+    super.setProperty( "keyTimeout", String.valueOf( keyTimeout ) );
+  }
+
+
+  /**
+   * getter for the key timeout.
+   * @retunr the key timeout in seconds
+   */
+  public int getKeyTimeout()
+  {
+    return Integer.parseInt( (String)super.get( "keyTimeout" ) );
+  }
+
+
+  /**
+   * Setter for the horizontal window position.
+   * @param x the new horizontal window position
+   */
+  public void setWindowXPos( int x )
+  {
+    super.setProperty( "window.x", String.valueOf( x ) );
+  }
+
+
+  /**
+   * Getter for the horizontal window position.
+   * @return the horizontal window position
+   */
+  public int getWindowXPos()
+  {
+    String strX = (String)super.get( "window.x" );
+    return (null == strX) ? 0 : Integer.parseInt( strX );
+  }
+
+
+  /**
+   * Setter for the vertical window position.
+   * @param y the new vertical window position
+   */
+  public void setWindowYPos( int y )
+  {
+    super.setProperty( "window.y", String.valueOf( y ) );
+  }
+
+
+  /**
+   * Getter for the vertical window position.
+   * @return the vertical window position
+   */
+  public int getWindowYPos()
+  {
+    String strY = (String)super.get( "window.y" );
+    return (null == strY) ? 0 : Integer.parseInt( strY );
+  }
+
+
+  /**
+   * Setter for the window width.
+   * @param height the new window width
+   */
+  public void setWindowWidth( int width )
+  {
+    super.setProperty( "window.width", String.valueOf( width ) );
+  }
+
+
+  /**
+   * Getter for the window width
+   * @return the window width
+   */
+  public int getWindowWidth()
+  {
+    String strWidth = (String)super.get( "window.width" );
+    return (null == strWidth) ? 300 : Integer.parseInt( strWidth );
+  }
+
+
+  /**
+   * Setter for the window height.
+   * @param height the new window height
+   */
+  public void setWindowHeight( int height )
+  {
+    super.setProperty( "window.height", String.valueOf( height ) );
+  }
+
+
+  /**
+   * Getter for the window height
+   * @return the window height
+   */
+  public int getWindowHeight()
+  {
+    String strHeight = (String)super.get( "window.height" );
+    return (null == strHeight) ? 500 : Integer.parseInt( strHeight );
+  }
 }
