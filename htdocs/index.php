@@ -45,7 +45,7 @@
                           <font face="Arial,Helvetica">
                             <center>
                               <a href="index.php?page=/about/about.php">About</a><br>
-                              News<br>
+                              <a href="index.php?page=/about/about.php">News</a><br>
                               <a href="http://developer.berlios.de/projects/tresor/">Project page</a>
                             </center>
                           </font>
